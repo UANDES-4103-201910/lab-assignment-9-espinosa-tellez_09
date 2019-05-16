@@ -11,8 +11,8 @@
   <body>
     <nav class="navbar">
       
-        <button>Log in</button>
-        <button><%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %></button>
+        <button><%= User.find(session["warden.user.user.key"][0][0]).email %></button>
+        <button><%= link_to "Log Out", log_out_path, method: :delete %></button>
       
     </nav>
   	<p id="notice"><%= notice %></p>
