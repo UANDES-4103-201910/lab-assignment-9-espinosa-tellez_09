@@ -22,4 +22,7 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<% if can? :manage, Ticket %>
+  <%= link_to 'New Ticket', new_ticket_path %>
+<% end %>
+

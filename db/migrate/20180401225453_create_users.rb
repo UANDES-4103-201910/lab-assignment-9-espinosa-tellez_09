@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
 
       t.string :provider
 
+      t.integer :admin
+
       t.timestamps
     end
   end
