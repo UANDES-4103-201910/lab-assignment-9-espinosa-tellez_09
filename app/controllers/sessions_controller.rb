@@ -1,11 +1,14 @@
 class SessionsController < ApplicationController
-	
-	def new
-		if current_user
-			redirect_to current_user
 
+	def new
+		user = User.find(session["warden.user.user.key"][0][0])
+		@current_user = user
+		if user["admin"]
+			redirect_to places_path
+		else
+			redirect_to tickets_path
+			#render json: {user: user}
 		end
-		
 		
 	end
 

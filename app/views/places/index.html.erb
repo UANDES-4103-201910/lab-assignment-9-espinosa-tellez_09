@@ -22,4 +22,7 @@
 
 <br>
 
-<%= link_to 'New Place', new_place_path %>
+<% if can? :manage, Place %>
+  <%= link_to 'New Place', new_place_path %>
+<% end %>
+

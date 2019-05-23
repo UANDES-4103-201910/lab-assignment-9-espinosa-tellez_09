@@ -5,6 +5,7 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.all
+    
   end
 
   # GET /tickets/1
