@@ -4,12 +4,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = list_events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
+    @place = Place.find(@event[:place_id])
   end
 
   # GET /events/new
@@ -76,5 +78,16 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name, :description, :start_date, :place)
+    end
+
+    def list_events
+      event_list = []
+      events = Event.all
+      events.each do |event|
+        event_info = event.attributes
+        event_info[:place] = Place.find(event.place_id)
+        event_list << event_info
+      end
+      event_list
     end
 end

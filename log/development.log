@@ -20398,3 +20398,928 @@ Completed 200 OK in 96ms (Views: 91.2ms | ActiveRecord: 0.9ms)
 
 
 >>>>>>> 0c1b406629c3240c4d5f13898b3faec101ac9d77
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+Started GET "/events" for ::1 at 2019-05-23 16:40:56 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (23.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 364ms (Views: 272.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:44:04 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (6.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 43.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/events/3" for ::1 at 2019-05-23 16:44:19 -0400
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8vsFRSyM9Lqkb/orB7roa6z0t4+jK1tV/7NuLP1taZ4Ixt9MZwQEV6ioL8/25Mv+m9O2+FdMxjPggsvRc6Zyrw==", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Destroy (1.5ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 3]]
+  [1m[35m (169.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events
+Completed 302 Found in 182ms (ActiveRecord: 171.8ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:44:19 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (3.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 41.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/events/4" for ::1 at 2019-05-23 16:44:23 -0400
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IKLmLEiPCzgym46De86sefbTzsk8wKK2dVmDU3tFVl3anzwlAwf71T5cW2eKkI/swfTPvsinP9BqaCau9Y5NbA==", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 4]]
+  [1m[35m (176.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events
+Completed 302 Found in 187ms (ActiveRecord: 178.1ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:44:23 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (3.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 40.1ms | ActiveRecord: 0.5ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+  [1m[36mEvent Load (2.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 11]]
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+Started GET "/events/new" for ::1 at 2019-05-23 16:45:36 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/new.html.erb within layouts/glogged_in
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places"[0m
+  Rendered events/_form.html.erb (146.5ms)
+  Rendered events/new.html.erb within layouts/glogged_in (148.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 443ms (Views: 377.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:45:42 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (4.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 88.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:46:19 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (4.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 58.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/1" for ::1 at 2019-05-23 16:46:39 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (1.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 81.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:47:38 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/glogged_in (4.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 83.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 16:52:03 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Completed 404 Not Found in 78ms (ActiveRecord: 6.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Place without an ID):
+  
+app/controllers/events_controller.rb:86:in `block in list_events'
+app/controllers/events_controller.rb:84:in `list_events'
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events" for ::1 at 2019-05-23 16:52:58 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Completed 404 Not Found in 55ms (ActiveRecord: 2.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Place without an ID):
+  
+app/controllers/events_controller.rb:86:in `block in list_events'
+app/controllers/events_controller.rb:84:in `list_events'
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events" for ::1 at 2019-05-23 16:54:14 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (4.8ms)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"events", "created_at"=>Wed, 22 May 2019 14:45:24 UTC +00:00, "description"=>nil, "id"=>1, "name"=>"Lollapalooza 2018", :place=>#<Place id: 2, name: "Teatro Nacional Chileno", address: "San Diego 850", capacity: 5000, created_at: "2019-05-22 14:45:24", updated_at: "2019-05-22 14:45:24">, "place_id"=>2, "start_date"=>Tue, 25 Jun 2019, "updated_at"=>Wed, 22 May 2019 14:45:24 UTC +00:00}, missing required keys: [:id]):
+    16:         <td><%= event[:start_date] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', event %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+    22:     <% end %>
+  
+app/views/events/index.html.erb:19:in `block in _app_views_events_index_html_erb__3711916224487639276_70058080710780'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_70058080710780'
+Started GET "/events" for ::1 at 2019-05-23 16:55:51 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (3.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"events", "created_at"=>Wed, 22 May 2019 14:45:24 UTC +00:00, "description"=>nil, "id"=>1, "name"=>"Lollapalooza 2018", :place=>#<Place id: 2, name: "Teatro Nacional Chileno", address: "San Diego 850", capacity: 5000, created_at: "2019-05-22 14:45:24", updated_at: "2019-05-22 14:45:24">, "place_id"=>2, "start_date"=>Tue, 25 Jun 2019, "updated_at"=>Wed, 22 May 2019 14:45:24 UTC +00:00}, missing required keys: [:id]):
+    16:         <td><%= event[:start_date] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', event %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+    22:     <% end %>
+  
+app/views/events/index.html.erb:19:in `block in _app_views_events_index_html_erb__3711916224487639276_70058132910320'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_70058132910320'
+Started GET "/events" for ::1 at 2019-05-23 16:58:48 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (2.8ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"events", :id=>nil}, missing required keys: [:id]):
+    16:         <td><%= event[:start_date] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', event %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event[:id]) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+    22:     <% end %>
+  
+app/views/events/index.html.erb:19:in `block in _app_views_events_index_html_erb__3711916224487639276_47255769781460'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_47255769781460'
+Started GET "/events" for ::1 at 2019-05-23 16:59:06 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (2.9ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"events", "created_at"=>Wed, 22 May 2019 14:45:24 UTC +00:00, "description"=>nil, "id"=>1, "name"=>"Lollapalooza 2018", :place=>#<Place id: 2, name: "Teatro Nacional Chileno", address: "San Diego 850", capacity: 5000, created_at: "2019-05-22 14:45:24", updated_at: "2019-05-22 14:45:24">, "place_id"=>2, "start_date"=>Tue, 25 Jun 2019, "updated_at"=>Wed, 22 May 2019 14:45:24 UTC +00:00}, missing required keys: [:id]):
+    16:         <td><%= event[:start_date] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', event %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+    22:     <% end %>
+  
+app/views/events/index.html.erb:19:in `block in _app_views_events_index_html_erb__3711916224487639276_70058131309560'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_70058131309560'
+Started GET "/events" for ::1 at 2019-05-23 16:59:42 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (4.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for #<Hash:0x00007f6f55fd6350>):
+    16:         <td><%= event[:start_date] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', event %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+    22:     <% end %>
+  
+app/views/events/index.html.erb:19:in `block in _app_views_events_index_html_erb__3711916224487639276_70058080361540'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_70058080361540'
+Started GET "/events" for ::1 at 2019-05-23 16:59:50 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (5.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 44.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 17:00:12 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (4.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 39.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:00:24 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (6.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 70.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:00:28 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (3.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 60.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:01:16 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (4.0ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 121ms (Views: 45.6ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/events?created_at=2019-05-23+19%3A03%3A00+UTC&description=jbfdakjfbajkdbf&id=5&name=paloma+mami&place=1&place_id=1&start_date=2019-05-24&updated_at=2019-05-23+19%3A03%3A00+UTC" for ::1 at 2019-05-23 17:01:18 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-23 19:03:00 UTC", "description"=>"jbfdakjfbajkdbf", "id"=>"5", "name"=>"paloma mami", "place"=>"1", "place_id"=>"1", "start_date"=>"2019-05-24", "updated_at"=>"2019-05-23 19:03:00 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (5.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 69ms (Views: 61.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events?created_at=2019-05-23+19%3A03%3A00+UTC&description=jbfdakjfbajkdbf&id=5&name=paloma+mami&place=1&place_id=1&start_date=2019-05-24&updated_at=2019-05-23+19%3A03%3A00+UTC" for ::1 at 2019-05-23 17:01:19 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-23 19:03:00 UTC", "description"=>"jbfdakjfbajkdbf", "id"=>"5", "name"=>"paloma mami", "place"=>"1", "place_id"=>"1", "start_date"=>"2019-05-24", "updated_at"=>"2019-05-23 19:03:00 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (6.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 55.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=2&name=Festival+de+Vi%C3%B1a+2018&place=2&place_id=2&start_date=2019-06-30&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:01:41 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"2", "name"=>"Festival de Viña 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-30", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (6.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 63.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=2&name=Festival+de+Vi%C3%B1a+2018&place=2&place_id=2&start_date=2019-06-30&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:01:42 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"2", "name"=>"Festival de Viña 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-30", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (7.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 55.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-05-23 17:02:26 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/tickets
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/tickets" for ::1 at 2019-05-23 17:02:26 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tickets/index.html.erb within layouts/glogged_in (32.9ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for #<User:0x00007f6f5475ef20>):
+    22: 
+    23: <br>
+    24: 
+    25: <% if can? :manage, Ticket %>
+    26:   <%= link_to 'New Ticket', new_ticket_path %>
+    27: <% end %>
+  
+app/models/ability.rb:11:in `initialize'
+app/views/tickets/index.html.erb:25:in `_app_views_tickets_index_html_erb___3772476149722541691_70058070652080'
+Started GET "/events/1" for ::1 at 2019-05-23 17:02:30 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 49.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for ::1 at 2019-05-23 17:02:34 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 61.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:02:36 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (6.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 63.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:02:38 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (5.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 55.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:02:38 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (8.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 56.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:02:38 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (6.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 65.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:02:38 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (7.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 82ms (Views: 70.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:02:39 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (7.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 82ms (Views: 70.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:03:00 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (8.0ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 1:Integer
+Did you mean?  to_yaml):
+    15:         <td><%= event["name"] %></td>
+    16:         <td><%= event["start_date"] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', event["id"] %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event["id"]) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+  
+app/views/events/index.html.erb:18:in `block in _app_views_events_index_html_erb__3711916224487639276_70058131067020'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_70058131067020'
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:03:28 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (257.7ms)
+Completed 500 Internal Server Error in 268ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `show_event_path' for #<#<Class:0x00007f6f5c7c6bb8>:0x00007f6f55f6a2e0>):
+    15:         <td><%= event["name"] %></td>
+    16:         <td><%= event["start_date"] %></td>
+    17:         <td><%= event[:place]["name"] %></td>
+    18:         <td><%= link_to 'Show', show_event_path(event["id"]) %></td>
+    19:         <td><%= link_to 'Edit', edit_event_path(event["id"]) %></td>
+    20:         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+  
+app/views/events/index.html.erb:18:in `block in _app_views_events_index_html_erb__3711916224487639276_70058080163500'
+app/views/events/index.html.erb:13:in `each'
+app/views/events/index.html.erb:13:in `_app_views_events_index_html_erb__3711916224487639276_70058080163500'
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:19:29 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (33.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (5.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 634ms (Views: 586.6ms | ActiveRecord: 35.7ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:19:32 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (16.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 67.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:19:45 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (7.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 80.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:19:50 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (5.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 55.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events/5/edit" for ::1 at 2019-05-23 17:19:55 -0400
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/glogged_in
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places"[0m
+  Rendered events/_form.html.erb (989.2ms)
+  Rendered events/edit.html.erb within layouts/glogged_in (1020.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 1123ms (Views: 1065.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/events?created_at=2019-05-22+14%3A45%3A24+UTC&id=1&name=Lollapalooza+2018&place=2&place_id=2&start_date=2019-06-25&updated_at=2019-05-22+14%3A45%3A24+UTC" for ::1 at 2019-05-23 17:20:00 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"created_at"=>"2019-05-22 14:45:24 UTC", "id"=>"1", "name"=>"Lollapalooza 2018", "place"=>"2", "place_id"=>"2", "start_date"=>"2019-06-25", "updated_at"=>"2019-05-22 14:45:24 UTC"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Place Load (0.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/glogged_in
+  Rendered events/index.html.erb within layouts/glogged_in (6.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 48.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events/1" for ::1 at 2019-05-23 17:20:45 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 42.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/1" for ::1 at 2019-05-23 17:23:52 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 43.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/1" for ::1 at 2019-05-23 17:25:39 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 72ms (ActiveRecord: 3.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Place without an ID):
+  
+app/controllers/events_controller.rb:14:in `show'
+Started GET "/events/1" for ::1 at 2019-05-23 17:26:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 491ms (ActiveRecord: 3.2ms)
+
+
+  
+NameError (undefined local variable or method `event' for #<EventsController:0x00007f6f5c6c74d8>
+Did you mean?  @event):
+  
+app/controllers/events_controller.rb:14:in `show'
+Started GET "/events/1" for ::1 at 2019-05-23 17:26:39 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 4.3ms)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `place`):
+  
+app/controllers/events_controller.rb:14:in `show'
+Started GET "/events/1" for ::1 at 2019-05-23 17:26:48 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 3.3ms)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `place`):
+  
+app/controllers/events_controller.rb:14:in `show'
+Started GET "/events/1" for ::1 at 2019-05-23 17:27:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (3.0ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2: 
+    3: <p><%= @event[:name] %></p>
+    4: <p><%= @event[:start_date] %></p>
+    5: <p><%= @event[:place]["name"] %></p>
+    6: 
+    7: <%= link_to 'Edit', edit_event_path(@event) %> |
+    8: <%= link_to 'Back', events_path %>
+  
+app/views/events/show.html.erb:5:in `_app_views_events_show_html_erb__3992930007313978990_70058134473820'
+Started GET "/events/1" for ::1 at 2019-05-23 17:27:25 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 49.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events/1" for ::1 at 2019-05-23 18:17:26 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (24.0ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.6ms)
+
+
+  
+LoadError (Unable to autoload constant User_Ticket, expected /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/user_ticket.rb to define it):
+  
+app/views/events/show.html.erb:7:in `_app_views_events_show_html_erb__3992930007313978990_47255768793000'
+Started GET "/events/1" for ::1 at 2019-05-23 18:17:40 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  Rendered events/show.html.erb within layouts/glogged_in (2.3ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.1ms)
+
+
+  
+LoadError (Unable to autoload constant User_ticket, expected /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/user_ticket.rb to define it):
+  
+app/views/events/show.html.erb:7:in `_app_views_events_show_html_erb__3992930007313978990_70058000142620'
+Started GET "/events/1" for ::1 at 2019-05-23 18:17:46 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (10.4ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ? ORDER BY "tickets"."id" ASC LIMIT ?[0m  [["event_id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/glogged_in (62.4ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 12.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+     6: 
+     7: <%= form_with model: UserTicket.new do |form| %>
+     8: 	Tickets:<br>
+     9: 	<%= form.collection_select(:ticket, Ticket.where(event_id: @event[:id]).first, :id, :description) %>
+    10: 	<%= form.number_field %>
+    11: <% end %>
+    12: 
+  
+app/views/events/show.html.erb:9:in `block in _app_views_events_show_html_erb__3992930007313978990_70058079340160'
+app/views/events/show.html.erb:7:in `_app_views_events_show_html_erb__3992930007313978990_70058079340160'
+  [1m[36mTicket Load (18.6ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" LIMIT ?[0m  [["LIMIT", 11]]
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+Started GET "/events/2" for ::1 at 2019-05-23 18:18:57 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.6ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ? ORDER BY "tickets"."id" ASC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/glogged_in (263.9ms)
+Completed 500 Internal Server Error in 406ms (ActiveRecord: 7.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for #<Ticket:0x00007fe398611b00>
+Did you mean?  tap):
+     6: 
+     7: <%= form_with model: UserTicket.new do |form| %>
+     8: 	Tickets:<br>
+     9: 	<%= form.collection_select(:ticket, Ticket.where(event_id: @event[:id]).first, :id, :description) %>
+    10: 	<%= form.number_field %>
+    11: <% end %>
+    12: 
+  
+app/views/events/show.html.erb:9:in `block in _app_views_events_show_html_erb___2247667851623052628_70307744813880'
+app/views/events/show.html.erb:7:in `_app_views_events_show_html_erb___2247667851623052628_70307744813880'
