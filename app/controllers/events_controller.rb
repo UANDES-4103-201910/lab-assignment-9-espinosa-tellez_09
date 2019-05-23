@@ -24,7 +24,13 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    ticket_place = Place.find(event_params["place"])
+    ev_params = {}
+    ev_params[:name] = event_params[:name]
+    ev_params[:description] = event_params[:description]
+    ev_params[:start_date] = event_params[:start_date]
+    ev_params[:place] = ticket_place
+    @event = Event.new(ev_params)
 
     respond_to do |format|
       if @event.save
@@ -69,6 +75,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.fetch(:event, {})
+      params.require(:event).permit(:name, :description, :start_date, :place)
     end
 end

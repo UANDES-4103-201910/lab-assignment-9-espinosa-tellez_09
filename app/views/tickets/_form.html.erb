@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  Description: <br>
+  <%= form.text_area(:description, size: '50x10') %><br>
+  Price: <br>
+  $<%= form.number_field :price %><br>
+  Event: <br>
+  <%= form.collection_select(:event, Event.all, :id, :name) %><br>
+  <br>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
