@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!--p id="notice"><%= notice %></p-->
 
 <h1>Tickets</h1>
 
@@ -25,4 +25,6 @@
 <% if can? :manage, Ticket %>
   <%= link_to 'New Ticket', new_ticket_path %>
 <% end %>
+
+<%= link_to 'Events', events_path %>
 

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 		user = User.find(session["warden.user.user.key"][0][0])
 		@current_user = user
 		if user["admin"]
-			redirect_to places_path
+			redirect_to events_path
 		else
 			redirect_to tickets_path
 			#render json: {user: user}
