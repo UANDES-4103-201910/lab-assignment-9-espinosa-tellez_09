@@ -5,20 +5,24 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
+    
   end
 
   # GET /places/1
   # GET /places/1.json
   def show
+    authorize! :manage, @place
   end
 
   # GET /places/new
   def new
     @place = Place.new
+    authorize! :manage, @place
   end
 
   # GET /places/1/edit
   def edit
+    authorize! :manage, @place
   end
 
   # POST /places
@@ -54,6 +58,7 @@ class PlacesController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
+    authorize! :manage, @place
     @place.destroy
     respond_to do |format|
       format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }

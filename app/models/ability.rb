@@ -14,6 +14,7 @@ class Ability
       can :manage, Place
     else
       can :read, Ticket
+      can :read, Event
     end
     #
     # The first argument to `can` is the action you are giving the user

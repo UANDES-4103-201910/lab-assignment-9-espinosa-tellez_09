@@ -11,15 +11,18 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    authorize! :read, @ticket
   end
 
   # GET /tickets/new
   def new
     @ticket = Ticket.new
+    authorize! :manage, @ticket
   end
 
   # GET /tickets/1/edit
   def edit
+    authorize! :manage, @ticket
   end
 
   # POST /tickets
@@ -61,6 +64,7 @@ class TicketsController < ApplicationController
   # DELETE /tickets/1
   # DELETE /tickets/1.json
   def destroy
+    authorize! :manage, @ticket
     @ticket.destroy
     respond_to do |format|
       format.html { redirect_to tickets_url, notice: 'Ticket was successfully destroyed.' }
