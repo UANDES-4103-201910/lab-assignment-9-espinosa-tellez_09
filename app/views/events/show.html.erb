@@ -6,8 +6,12 @@
 
 <%= form_with model: UserTicket.new do |form| %>
 	Tickets:<br>
-	<%= form.collection_select(:ticket, Ticket.where(event_id: @event[:id]).first, :id, :description) %>
-	<%= form.number_field %>
+	<%= form.collection_select(:ticket, Ticket.where(event_id: @event[:id]), :id, :description) %>
+	<%= form.number_field :number_of_tickets %><br>
+	<br>
+	<div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
