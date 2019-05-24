@@ -4,12 +4,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = list_events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
+    @place = Place.find(@event[:place_id])
   end
 
   # GET /events/new
@@ -24,7 +26,13 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    ticket_place = Place.find(event_params["place"])
+    ev_params = {}
+    ev_params[:name] = event_params[:name]
+    ev_params[:description] = event_params[:description]
+    ev_params[:start_date] = event_params[:start_date]
+    ev_params[:place] = ticket_place
+    @event = Event.new(ev_params)
 
     respond_to do |format|
       if @event.save
@@ -69,6 +77,17 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.fetch(:event, {})
+      params.require(:event).permit(:name, :description, :start_date, :place)
+    end
+
+    def list_events
+      event_list = []
+      events = Event.all
+      events.each do |event|
+        event_info = event.attributes
+        event_info[:place] = Place.find(event.place_id)
+        event_list << event_info
+      end
+      event_list
     end
 end

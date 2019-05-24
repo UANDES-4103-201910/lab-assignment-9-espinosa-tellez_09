@@ -25,7 +25,13 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.new(ticket_params)
+    event = Event.find(ticket_params["event"])
+    t_params = {}
+    t_params[:description] = ticket_params[:description]
+    t_params[:price] = ticket_params[:price]
+    t_params[:event] = event
+
+    @ticket = Ticket.new(t_params)
 
     respond_to do |format|
       if @ticket.save
@@ -70,6 +76,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.fetch(:ticket, {})
+      params.require(:ticket).permit(:description, :price, :event)
     end
 end

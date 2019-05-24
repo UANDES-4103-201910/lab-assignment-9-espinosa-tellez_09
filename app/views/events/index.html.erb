@@ -12,8 +12,11 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event["name"] %></td>
+        <td><%= event["start_date"] %></td>
+        <td><%= event[:place]["name"] %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Edit', edit_event_path(event["id"]) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -9,7 +9,21 @@
       <% end %>
       </ul>
     </div>
+
+
   <% end %>
+
+
+    Name: <br>
+    <%= form.text_field :name %><br>
+    Description: <br>
+    <%= form.text_area(:description, size: '50x10') %><br>
+    Date: <br>
+    <%= form.date_field("start_date", min: Date.today) %><br>
+    Venue: <br>
+    <%= form.collection_select(:place, Place.all, :id, :name) %><br>
+    <br>
+
 
   <div class="actions">
     <%= form.submit %>
