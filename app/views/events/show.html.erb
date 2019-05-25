@@ -7,7 +7,7 @@
 <%= form_for @user_ticket, :url => user_tickets_path(@user_ticket) do |form| %>
 	Tickets:<br>
 	<%= form.collection_select(:ticket, @tickets, :id, :description) %>
-	<%= form.number_field :number_of_tickets %><br>
+	<%= form.number_field("number_of_tickets", min: 1) %><br>
 	<br>
 	<div class="actions">
     <%= form.submit %>
