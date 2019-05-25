@@ -4,12 +4,14 @@ class UserTicketsController < ApplicationController
   # GET /user_tickets
   # GET /user_tickets.json
   def index
-    @user_tickets = UserTicket.all
+    user = User.find(session["warden.user.user.key"][0][0])
+    @user_tickets = UserTicket.where(paid: nil).where(user: user)
   end
 
   # GET /user_tickets/1
   # GET /user_tickets/1.json
   def show
+
   end
 
   # GET /user_tickets/new
@@ -24,19 +26,21 @@ class UserTicketsController < ApplicationController
   # POST /user_tickets
   # POST /user_tickets.json
   def create    
-    @user_ticket = UserTicket.new(user_ticket_params)
-    render json: {user_ticket: @user_ticket}
-=begin
+    ticket = Ticket.find(user_ticket_params[:ticket])
+    user = User.find(session["warden.user.user.key"][0][0])
+    ut_params = {user: user, ticket: ticket }
+    @user_ticket = UserTicket.new(ut_params)
+
     respond_to do |format|
       if @user_ticket.save
-        format.html { redirect_to @user_ticket, notice: 'User ticket was successfully created.' }
-        format.json { render :show, status: :created, location: @user_ticket }
+        format.html { redirect_to user_tickets_path, notice: 'User ticket was successfully created.' }
+        format.json { render :index, status: :created, location: @user_ticket }
       else
         format.html { render :new }
         format.json { render json: @user_ticket.errors, status: :unprocessable_entity }
       end
     end
-=end
+
   end
 
   # PATCH/PUT /user_tickets/1
@@ -71,6 +75,6 @@ class UserTicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_ticket_params
-      params.fetch(:user_ticket, {})
+      params.require(:user_ticket).permit(:ticket, :number_of_tickets)
     end
 end
