@@ -30759,3 +30759,43 @@ Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
 ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
   
 app/controllers/user_tickets_controller.rb:27:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/joaquin/Desktop/Web_Labs/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+Started GET "/events/1" for ::1 at 2019-05-24 22:16:34 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.5ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  Rendered events/show.html.erb within layouts/glogged_in (48.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 555ms (Views: 428.0ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/user_tickets" for ::1 at 2019-05-24 22:16:42 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9XIz9WAF1CdN+z5CrZzbeYgQuInpK+gTYjOHTbjrh301al/XCg9dkBVECIjVkFKH/HtcxnnQOhI59o+5EYe4ow==", "user_ticket"=>{"ticket"=>"1", "number_of_tickets"=>""}, "commit"=>"Create User ticket"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/user_tickets_controller.rb:27:in `create'
