@@ -14,7 +14,7 @@ place_1 = Place.create(name: 'Estadio Nacional Julio Martínez Prádanos', addre
 place_2 = Place.create(name: 'Teatro Nacional Chileno', address:'San Diego 850', capacity: 5000)
 
 
-event_1 = Event.create(name: 'ICPC 2018', start_date: DateTime.new(2019, 05, 15), place: place_1)
+event_1 = Event.create(name: 'ICPC 2018', start_date: DateTime.new(2019, 05, 25), place: place_1)
 event_2 = Event.create(name: 'Facebook Hackathon 2018', start_date: DateTime.new(2019, 05, 20), place: place_1)
 event_3 = Event.create(name: 'Lollapalooza 2018', start_date: DateTime.new(2019, 06, 25), place: place_2)
 event_4 = Event.create(name: 'Festival de Viña 2018', start_date: DateTime.new(2019, 06, 30), place: place_2)

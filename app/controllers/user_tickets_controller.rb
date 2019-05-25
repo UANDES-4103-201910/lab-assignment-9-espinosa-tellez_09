@@ -4,8 +4,7 @@ class UserTicketsController < ApplicationController
   # GET /user_tickets
   # GET /user_tickets.json
   def index
-    user = User.find(session["warden.user.user.key"][0][0])
-    @user_tickets = UserTicket.where(paid: nil).where(user: user)
+    @user_tickets = list_tickets
   end
 
   # GET /user_tickets/1
@@ -33,7 +32,7 @@ class UserTicketsController < ApplicationController
 
     respond_to do |format|
       if @user_ticket.save
-        format.html { redirect_to user_tickets_path, notice: 'User ticket was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Ticket was bought successfully.' }
         format.json { render :index, status: :created, location: @user_ticket }
       else
         format.html { render :new }
@@ -67,6 +66,10 @@ class UserTicketsController < ApplicationController
     end
   end
 
+  def receipt
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_ticket
@@ -76,5 +79,17 @@ class UserTicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_ticket_params
       params.require(:user_ticket).permit(:ticket, :number_of_tickets)
+    end
+
+    def list_tickets
+      ticket_list = []
+      user = User.find(session["warden.user.user.key"][0][0])
+      tickets = UserTicket.where(paid: nil).where(user: user)
+      tickets.each do |ticket|
+        ticket_info = ticket.attributes
+        ticket_info[:event] = Event.find(ticket.ticket.event.id)
+        ticket_list << ticket_info
+      end
+      ticket_list
     end
 end
