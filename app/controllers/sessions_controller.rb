@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 		if user["admin"]
 			redirect_to events_path
 		else
-			redirect_to tickets_path
+			redirect_to events_path
 			#render json: {user: user}
 		end
 		

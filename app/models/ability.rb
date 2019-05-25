@@ -12,9 +12,10 @@ class Ability
       can :manage, Event
       can :manage, Ticket
       can :manage, Place
+      can :manage, UserTicket
     else
-      can :read, Ticket
       can :read, Event
+      can :read, UserTicket
     end
     #
     # The first argument to `can` is the action you are giving the user

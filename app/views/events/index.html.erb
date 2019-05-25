@@ -15,9 +15,11 @@
         <td><%= event["name"] %></td>
         <td><%= event["start_date"] %></td>
         <td><%= Place.find(event.place_id).name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event["id"]) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Buy Tickets', event %></td>
+        <% if can? :manage, Event %>
+          <td><%= link_to 'Edit', edit_event_path(event["id"]) %></td>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +31,3 @@
   <%= link_to 'New Event', new_event_path %>
 <% end %>
 
-<%= link_to 'Tickets', tickets_path %>
