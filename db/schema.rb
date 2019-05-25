@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_05_15_130726) do
     t.integer "ticket_id"
     t.datetime "time"
     t.boolean "paid"
+    t.integer "n_bought"
+    t.boolean "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ticket_id"], name: "index_user_tickets_on_ticket_id"

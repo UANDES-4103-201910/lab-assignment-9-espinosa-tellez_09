@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   get '/sign_in' => 'registrations#new', as: :registrations
   post '/sign_in' => 'registrations#create', as: :sign_in
 
+  get '/check_out' => 'user_tickets#update_all', as: :update_all_ut
+  get '/receipt' => 'user_tickets#receipt', as: :receipt
+  get '/confirm' => 'user_tickets#update_all_confirm', as: :confirm
+
 
 end

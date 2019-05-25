@@ -5,7 +5,8 @@ class CreateUserTickets < ActiveRecord::Migration[5.1]
       t.references :ticket, foreign_key: true
       t.datetime :time
       t.boolean :paid
-
+      t.integer :n_bought
+      t.boolean :current
 
       t.timestamps
     end

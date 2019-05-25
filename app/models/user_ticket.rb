@@ -2,6 +2,6 @@ class UserTicket < ApplicationRecord
   belongs_to :user
   belongs_to :ticket
 
-  attr_accessor :number_of_tickets
+  validates :n_bought, :numericality => { :greater_than => 0 }
 
 end
