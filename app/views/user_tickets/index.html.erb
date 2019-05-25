@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User Tickets</h1>
+<h1>Shopping Cart</h1>
 
 <table>
   <thead>
@@ -12,6 +12,8 @@
   <tbody>
     <% @user_tickets.each do |user_ticket| %>
       <tr>
+        <td>event</td>
+        <td>ticket</td>
         <td><%= link_to 'Show', user_ticket %></td>
         <td><%= link_to 'Edit', edit_user_ticket_path(user_ticket) %></td>
         <td><%= link_to 'Destroy', user_ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -20,6 +22,8 @@
   </tbody>
 </table>
 
-<br>
+<button>Check out</button>
+
+<br><br>
 
 <%= link_to 'New User Ticket', new_user_ticket_path %>
