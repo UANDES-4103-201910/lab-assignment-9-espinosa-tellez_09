@@ -32620,7 +32620,47 @@ Completed 200 OK in 73ms (Views: 64.7ms | ActiveRecord: 1.1ms)
 
 =======
 >>>>>>> f41f29976af8d1fd94d7d8cf11c3805a98d1fa38
+<<<<<<< HEAD
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+Started GET "/user_tickets" for ::1 at 2019-05-24 23:03:26 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserTicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering user_tickets/index.html.erb within layouts/glogged_in
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."paid" IS NULL AND "user_tickets"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered user_tickets/index.html.erb within layouts/glogged_in (2.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 289ms (Views: 232.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/user_tickets" for ::1 at 2019-05-24 23:03:44 -0400
+Processing by UserTicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering user_tickets/index.html.erb within layouts/glogged_in
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."paid" IS NULL AND "user_tickets"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered user_tickets/index.html.erb within layouts/glogged_in (3.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 63.4ms | ActiveRecord: 0.5ms)
+
+
+=======
 >>>>>>> 2ce7dde9b9feb46f668d585aea89d200880ce3df
+<<<<<<< HEAD
 DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
 set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
 boolean values and must have old data converted to 1 and 0 (its native boolean
@@ -33052,3 +33092,6 @@ Processing by UserTicketsController#index as HTML
 Completed 200 OK in 102ms (Views: 67.0ms | ActiveRecord: 1.4ms)
 
 
+=======
+>>>>>>> eaa4bfdeab584da029107821b85cc2ec1479f313
+>>>>>>> c3998c5fa12b5e0282dc4893c2d87204d993838f
