@@ -30812,6 +30812,155 @@ for all models and all boolean columns, after which the flag must be set to
 true by adding the following to your application.rb file:
 
   Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+<<<<<<< HEAD
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+Started GET "/events/2" for ::1 at 2019-05-24 22:18:34 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 401 Unauthorized in 34ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-05-24 22:18:35 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/megh/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/megh/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered /home/megh/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 307ms (Views: 251.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2019-05-24 22:18:38 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2019-05-24 22:18:38 -0400
+Started GET "/users/auth/google_oauth2/callback?state=37b99588f564519a751ee80de800c87eb5dbe35d6e0efe91&code=4/VQEEmybbMTMyBrVV7NI6KGdEdwvdK7XRZFRFXxS6jdI_9mASMhSh_9_RjJl19riEIfa6xiAAePDpwnC6D6_se88&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email" for ::1 at 2019-05-24 22:18:44 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"37b99588f564519a751ee80de800c87eb5dbe35d6e0efe91", "code"=>"4/VQEEmybbMTMyBrVV7NI6KGdEdwvdK7XRZFRFXxS6jdI_9mASMhSh_9_RjJl19riEIfa6xiAAePDpwnC6D6_se88", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "106639772858777490743"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mespinosa3@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mespinosa3@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "name", "provider", "created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["uid", "106639772858777490743"], ["name", "MACARENA ESPINOSA GARCIA-HUIDOBRO"], ["provider", "google_oauth2"], ["created_at", "2019-05-25 02:18:45.828359"], ["updated_at", "2019-05-25 02:18:45.828359"], ["email", "mespinosa3@miuandes.cl"], ["encrypted_password", "$2a$11$OcNzhNQYhNxUROyA8jS2duic6vMrWdXNGV7pQtJLrKv16zETJLGT."]]
+  [1m[35m (80.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (2.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-25 02:18:45.916047"], ["sign_in_count", 1], ["current_sign_in_at", "2019-05-25 02:18:45.915048"], ["last_sign_in_at", "2019-05-25 02:18:45.915048"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["id", 4]]
+  [1m[35m (105.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/2
+Completed 302 Found in 422ms (ActiveRecord: 189.7ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:18:46 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (43.7ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 238ms (Views: 121.3ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:19:26 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (5.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 86.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:19:37 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (6.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:19:39 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (4.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 47.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:19:45 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.7ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (4.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 50.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:19:46 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (4.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:19:54 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (4.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 67ms (Views: 59.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events/2" for ::1 at 2019-05-24 22:20:07 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/glogged_in
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/glogged_in (5.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 47.1ms | ActiveRecord: 1.3ms)
+
+
+=======
  (called from <top (required)> at /home/joaquin/Desktop/Web_Labs/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
 Started GET "/events/1" for ::1 at 2019-05-24 22:26:56 -0400
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -30906,6 +31055,7 @@ Completed 200 OK in 64ms (Views: 52.2ms | ActiveRecord: 1.9ms)
   [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT  "user_tickets".* FROM "user_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+>>>>>>> f41f29976af8d1fd94d7d8cf11c3805a98d1fa38
 DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
 set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
 boolean values and must have old data converted to 1 and 0 (its native boolean
@@ -30919,6 +31069,31 @@ for all models and all boolean columns, after which the flag must be set to
 true by adding the following to your application.rb file:
 
   Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+<<<<<<< HEAD
+ (called from <top (required)> at /home/megh/Desktop/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlace Create (0.4ms)[0m  [1m[32mINSERT INTO "places" ("name", "address", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Estadio Nacional Julio Martínez Prádanos"], ["address", "Av. Grecia 2001"], ["capacity", 50000], ["created_at", "2019-05-25 02:37:30.263979"], ["updated_at", "2019-05-25 02:37:30.263979"]]
+  [1m[35m (182.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlace Create (0.5ms)[0m  [1m[32mINSERT INTO "places" ("name", "address", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Teatro Nacional Chileno"], ["address", "San Diego 850"], ["capacity", 5000], ["created_at", "2019-05-25 02:37:30.450152"], ["updated_at", "2019-05-25 02:37:30.450152"]]
+  [1m[35m (73.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 3], ["start_date", "2019-05-15"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+=======
  (called from <top (required)> at /home/joaquin/Desktop/Web_Labs/lab-assignment-9-espinosa-tellez_09/app/models/application_record.rb:1)
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
@@ -30942,10 +31117,25 @@ true by adding the following to your application.rb file:
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 3], ["start_date", "2019-05-15"]]
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+>>>>>>> f41f29976af8d1fd94d7d8cf11c3805a98d1fa38
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 3], ["start_date", "2019-05-20"]]
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+<<<<<<< HEAD
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 4], ["start_date", "2019-06-25"]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("name", "start_date", "place_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lollapalooza 2018"], ["start_date", "2019-06-25"], ["place_id", 4], ["created_at", "2019-05-25 02:37:30.559733"], ["updated_at", "2019-05-25 02:37:30.559733"]]
+  [1m[35m (108.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 4], ["start_date", "2019-06-30"]]
+  [1m[36mEvent Create (0.8ms)[0m  [1m[32mINSERT INTO "events" ("name", "start_date", "place_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Festival de Viña 2018"], ["start_date", "2019-06-30"], ["place_id", 4], ["created_at", "2019-05-25 02:37:30.675717"], ["updated_at", "2019-05-25 02:37:30.675717"]]
+  [1m[35m (67.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+=======
   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 4], ["start_date", "2019-06-25"]]
   [1m[36mEvent Create (1.2ms)[0m  [1m[32mINSERT INTO "events" ("name", "start_date", "place_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lollapalooza 2018"], ["start_date", "2019-06-25"], ["place_id", 4], ["created_at", "2019-05-25 02:37:21.989328"], ["updated_at", "2019-05-25 02:37:21.989328"]]
   [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
@@ -30984,10 +31174,45 @@ true by adding the following to your application.rb file:
   [1m[36mTicket Create (1.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 4], ["created_at", "2019-05-25 02:37:22.146294"], ["updated_at", "2019-05-25 02:37:22.146294"]]
   [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+>>>>>>> f41f29976af8d1fd94d7d8cf11c3805a98d1fa38
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+<<<<<<< HEAD
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 6000], ["event_id", 3], ["created_at", "2019-05-25 02:37:30.767084"], ["updated_at", "2019-05-25 02:37:30.767084"]]
+  [1m[35m (88.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 6000], ["event_id", 3], ["created_at", "2019-05-25 02:37:30.863385"], ["updated_at", "2019-05-25 02:37:30.863385"]]
+  [1m[35m (102.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.6ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 3], ["created_at", "2019-05-25 02:37:30.972771"], ["updated_at", "2019-05-25 02:37:30.972771"]]
+  [1m[35m (81.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.6ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 4], ["created_at", "2019-05-25 02:37:31.060955"], ["updated_at", "2019-05-25 02:37:31.060955"]]
+  [1m[35m (94.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 4], ["created_at", "2019-05-25 02:37:31.163438"], ["updated_at", "2019-05-25 02:37:31.163438"]]
+  [1m[35m (57.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 4], ["created_at", "2019-05-25 02:37:31.226710"], ["updated_at", "2019-05-25 02:37:31.226710"]]
+  [1m[35m (93.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.5ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 8000], ["event_id", 3], ["created_at", "2019-05-25 02:37:31.333464"], ["updated_at", "2019-05-25 02:37:31.333464"]]
+  [1m[35m (167.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 8000], ["event_id", 4], ["created_at", "2019-05-25 02:37:31.503295"], ["updated_at", "2019-05-25 02:37:31.503295"]]
+  [1m[35m (63.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+=======
   [1m[36mTicket Create (1.4ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 8000], ["event_id", 3], ["created_at", "2019-05-25 02:37:22.168168"], ["updated_at", "2019-05-25 02:37:22.168168"]]
   [1m[35m (14.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
@@ -31248,10 +31473,72 @@ true by adding the following to your application.rb file:
   [1m[36mTicket Create (1.0ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 8000], ["event_id", 2], ["created_at", "2019-05-25 02:38:17.291120"], ["updated_at", "2019-05-25 02:38:17.291120"]]
   [1m[35m (18.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+>>>>>>> f41f29976af8d1fd94d7d8cf11c3805a98d1fa38
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+<<<<<<< HEAD
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time", "2019-05-25 02:37:31.579740"], ["paid", "t"], ["created_at", "2019-05-25 02:37:31.596128"], ["updated_at", "2019-05-25 02:37:31.596128"]]
+  [1m[35m (92.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time", "2019-05-25 02:37:31.692059"], ["paid", "t"], ["created_at", "2019-05-25 02:37:31.701329"], ["updated_at", "2019-05-25 02:37:31.701329"]]
+  [1m[35m (110.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.5ms)[0m  [1m[32mINSERT INTO "user_tickets" ("time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time", "2019-05-25 02:37:31.813628"], ["paid", "t"], ["created_at", "2019-05-25 02:37:31.823551"], ["updated_at", "2019-05-25 02:37:31.823551"]]
+  [1m[35m (110.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time", "2019-05-25 02:37:31.935746"], ["paid", "t"], ["created_at", "2019-05-25 02:37:31.948663"], ["updated_at", "2019-05-25 02:37:31.948663"]]
+  [1m[35m (84.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time", "2019-05-25 02:37:32.034454"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.039136"], ["updated_at", "2019-05-25 02:37:32.039136"]]
+  [1m[35m (93.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["time", "2019-05-25 02:37:32.136239"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.145630"], ["updated_at", "2019-05-25 02:37:32.145630"]]
+  [1m[35m (97.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "user_tickets" ("ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticket_id", 9], ["time", "2019-05-25 02:37:32.245187"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.249973"], ["updated_at", "2019-05-25 02:37:32.249973"]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticket_id", 10], ["time", "2019-05-25 02:37:32.345793"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.349675"], ["updated_at", "2019-05-25 02:37:32.349675"]]
+  [1m[35m (94.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.6ms)[0m  [1m[32mINSERT INTO "user_tickets" ("ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticket_id", 11], ["time", "2019-05-25 02:37:32.448725"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.455196"], ["updated_at", "2019-05-25 02:37:32.455196"]]
+  [1m[35m (67.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.6ms)[0m  [1m[32mINSERT INTO "user_tickets" ("ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticket_id", 12], ["time", "2019-05-25 02:37:32.525334"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.534274"], ["updated_at", "2019-05-25 02:37:32.534274"]]
+  [1m[35m (97.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.5ms)[0m  [1m[32mINSERT INTO "user_tickets" ("ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticket_id", 13], ["time", "2019-05-25 02:37:32.636235"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.644338"], ["updated_at", "2019-05-25 02:37:32.644338"]]
+  [1m[35m (63.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticket_id", 14], ["time", "2019-05-25 02:37:32.710727"], ["paid", "t"], ["created_at", "2019-05-25 02:37:32.716120"], ["updated_at", "2019-05-25 02:37:32.716120"]]
+  [1m[35m (95.4ms)[0m  [1m[36mcommit transaction[0m
+=======
   [1m[36mUserTicket Create (0.9ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["time", "2019-05-25 02:38:17.318401"], ["paid", "t"], ["created_at", "2019-05-25 02:38:17.333140"], ["updated_at", "2019-05-25 02:38:17.333140"]]
   [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
@@ -31477,6 +31764,7 @@ Processing by UserTicketsController#index as HTML
 Completed 200 OK in 78ms (Views: 69.8ms | ActiveRecord: 0.5ms)
 
 
+<<<<<<< HEAD
 DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
 set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
 boolean values and must have old data converted to 1 and 0 (its native boolean
@@ -32330,3 +32618,6 @@ Processing by UserTicketsController#index as HTML
 Completed 200 OK in 73ms (Views: 64.7ms | ActiveRecord: 1.1ms)
 
 
+=======
+>>>>>>> f41f29976af8d1fd94d7d8cf11c3805a98d1fa38
+>>>>>>> 2ce7dde9b9feb46f668d585aea89d200880ce3df
