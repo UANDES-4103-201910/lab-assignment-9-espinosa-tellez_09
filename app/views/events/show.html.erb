@@ -1,11 +1,10 @@
 <!--p id="notice"><%= notice %></p-->
 
-<p><%= @event[:name] %></p>
-<p><%= @event[:start_date] %></p>
-<p><%= @place[:name] %></p>
-
-<%= form_for @user_ticket, :url => url_for(:controller => 'user_tickets', :action => 'create') %>
+<%= form_for @user_ticket, :url => user_tickets_path(@user_ticket) do |form| %>
 	Tickets:<br>
+	<p><%= form.text_field :event_name, value: @event[:name], readonly: true %></p>
+	<p><%= form.text_field :event_start_date, value: @event[:start_date], readonly: true %></p>
+	<p><%= form.text_field :place_name, value: @place[:name], readonly: true %></p>
 	<%= form.collection_select(:ticket, @tickets, :id, :description) %>
 	<%= form.number_field :number_of_tickets %><br>
 	<br>

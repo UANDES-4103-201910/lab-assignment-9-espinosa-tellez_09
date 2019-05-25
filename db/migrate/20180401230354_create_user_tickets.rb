@@ -6,6 +6,7 @@ class CreateUserTickets < ActiveRecord::Migration[5.1]
       t.datetime :time
       t.boolean :paid
 
+
       t.timestamps
     end
   end

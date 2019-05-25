@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @place = Place.find(@event[:place_id])
     @tickets = Ticket.where(event: @event)
+    @user_ticket = UserTicket.new
     #render json: {tickets: @tickets}
   end
 
