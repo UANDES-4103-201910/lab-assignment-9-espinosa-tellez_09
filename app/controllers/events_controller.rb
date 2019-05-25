@@ -4,14 +4,17 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = list_events
+    #@events = list_events
+    @events = Event.all
   end
 
-  # GET /events/1
+  # GET /events/1 
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
     @place = Place.find(@event[:place_id])
+    @tickets = Ticket.where(event: @event)
+    #render json: {tickets: @tickets}
   end
 
   # GET /events/new

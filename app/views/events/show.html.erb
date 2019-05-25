@@ -4,9 +4,9 @@
 <p><%= @event[:start_date] %></p>
 <p><%= @place[:name] %></p>
 
-<%= form_with model: UserTicket.new do |form| %>
+<%= form_for @user_ticket, :url => url_for(:controller => 'user_tickets', :action => 'create') %>
 	Tickets:<br>
-	<%= form.collection_select(:ticket, Ticket.where(event_id: @event[:id]), :id, :description) %>
+	<%= form.collection_select(:ticket, @tickets, :id, :description) %>
 	<%= form.number_field :number_of_tickets %><br>
 	<br>
 	<div class="actions">
@@ -15,4 +15,4 @@
 <% end %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %>  

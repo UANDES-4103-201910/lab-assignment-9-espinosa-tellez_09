@@ -23,9 +23,10 @@ class UserTicketsController < ApplicationController
 
   # POST /user_tickets
   # POST /user_tickets.json
-  def create
+  def create    
     @user_ticket = UserTicket.new(user_ticket_params)
-
+    render json: {user_ticket: @user_ticket}
+=begin
     respond_to do |format|
       if @user_ticket.save
         format.html { redirect_to @user_ticket, notice: 'User ticket was successfully created.' }
@@ -35,6 +36,7 @@ class UserTicketsController < ApplicationController
         format.json { render json: @user_ticket.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /user_tickets/1

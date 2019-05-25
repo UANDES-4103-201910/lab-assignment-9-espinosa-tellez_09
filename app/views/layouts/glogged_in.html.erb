@@ -12,6 +12,7 @@
     <nav class="navbar">
       
         <button><%= User.find(session["warden.user.user.key"][0][0]).name %></button>
+        <button>Shopping Cart</button>
         <button><%= link_to "Log Out", log_out_path, method: :delete %></button>
       
     </nav>
